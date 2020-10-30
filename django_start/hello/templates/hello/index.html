@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet' type='text/css' href = "{% static 'hello/css/style.css' %}" />
+</head>
+<body>
+    <!-- テンプレートタグ -->
+    <a href = "{% url 'hello' %}">hello</a>
+    <p>{{message|safe}}</p>
+    <!-- action内のテンプレートタグでフォームを呼び出す -->
+    <table>
+    <form action = "{% url 'index' %}" method="post">
+        <!-- csrf token はフォームへの攻撃対策 -->
+        {% csrf_token %}
+        {{ form.astable }}
+        <tr>
+            <td></td>
+            <td><input type = "submit" value = "click"></td>
+        </tr>
+    </form>
+    </table>
+</body>
+</html>

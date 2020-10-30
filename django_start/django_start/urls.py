@@ -19,5 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     #path(address, 処理)
     path('admin/', admin.site.urls),
-    path('hello/', include(hello.urls)),# includeはモジュールを読み込む関数 
+    path('hello/', include('hello.urls')),# includeはモジュールを読み込む関数 
 ]
